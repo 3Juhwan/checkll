@@ -2,7 +2,7 @@
 
 **path**
 
-`/api/v1/pastgrade`
+`/api/pastgrade`
 
 **HTTP method**
 
@@ -11,12 +11,12 @@
 **request**
 
 **response**
-```
+```json
 {
     "majorAvg": "3.88",
     "totalAvg": "3.96",
     "cultureAvg": "4.06",
-    "accessAt": HHMMSS
+    "accessAt": "HHMMSS"
 }
 ```
 
@@ -30,18 +30,18 @@
 
 **path**
 
-`/api/v1/setinfo`
+`/api/setinfo`
 
 **HTTP method**
 
 `POST`
 
 **request**
-```
+```json
 {
-    "jSessionId" = "89e411a80321429ba5738e488cba978b41fbab477a4fe1eff88f",
-    "runningSejong" = "472df382-2578-4e32-92c3-fb35149ddec6",
-    "loginDt" = "20241128135035"
+    "boye" : "",
+    "sumin" : "",
+    "juhwan" : ""
 }
 ```
 
@@ -57,28 +57,28 @@
 
 **path**
 
-`/api/v1/start-session`
+`/api/start-session`
 
 **HTTP method**
 
 `POST`
 
 **request**
-```
+```json
 {
-    "jSessionId" = "89e411a80321429ba5738e488cba978b41fbab477a4fe1eff88f",
-    "runningSejong" = "472df382-2578-4e32-92c3-fb35149ddec6",
-    "loginDt" = "20241128135035"
+    "boye" : "",
+    "sumin" : "",
+    "juhwan" : ""
 }
 ```
 
 **response**
-```
+```json
 {
     "majorAvg": "3.88",
     "totalAvg": "3.96",
     "cultureAvg": "4.06",
-    "accessAt": HHMMSS
+    "accessAt": "HHMMSS"
 }
 ```
 
@@ -92,7 +92,7 @@
 
 **path**
 
-`/api/v1/end-session`
+`/api/end-session`
 
 **HTTP method**
 
