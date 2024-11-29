@@ -30,7 +30,7 @@
 
 **path**
 
-`/api/setinfo`
+`/api/set-credential`
 
 **HTTP method**
 
