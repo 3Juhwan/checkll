@@ -29,7 +29,7 @@ public class AdminController {
 
     @GetMapping("api/end-session")
     public ResponseEntity<Void> endSession() {
-            adminService.shutDownSession();
+        adminService.shutDownSession();
         return ResponseEntity.ok().build();
     }
 }
