@@ -1,0 +1,3 @@
+[submodule "src/main/java/kr/allcll/checkll/client"]
+	path = src/main/java/kr/allcll/checkll/client
+	url = https://github.com/3Juhwan/checkll-datasource.git
