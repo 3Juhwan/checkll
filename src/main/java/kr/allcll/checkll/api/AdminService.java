@@ -12,15 +12,15 @@ public class AdminService {
         this.pastGradeDataSource = pastGradeDataSource;
     }
 
-    public void setUpInfoByString(String credentialInfo) {
-        pastGradeDataSource.setCredential(credentialInfo);
+    public void setUpInfo(String credential) {
+        pastGradeDataSource.setCredential(credential);
     }
 
-    public void startInitialSession() {
+    public void setUpSession() {
         pastGradeDataSource.setUp();
     }
 
-    public void endUpSession() {
+    public void shutDownSession() {
         pastGradeDataSource.shutDown();
     }
 }

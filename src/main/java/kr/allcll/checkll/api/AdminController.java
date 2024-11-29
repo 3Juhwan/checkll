@@ -2,6 +2,7 @@ package kr.allcll.checkll.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,21 +14,21 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @GetMapping("/api/setinfo")
-    public ResponseEntity<Void> setUpInfo() {
-        adminService.setUpInfoByString(""); //수동으로 넣나
+    @GetMapping("/api/set-credential")
+    public ResponseEntity<Void> setCredential(@RequestBody SetCredentialRequest request) {
+        adminService.setUpInfo(request.credential());
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/api/start-session")
     public ResponseEntity<Void> startSession() {
-        adminService.startInitialSession();
+        adminService.setUpSession();
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("api/end-session")
     public ResponseEntity<Void> endSession() {
-        adminService.endUpSession();
+            adminService.shutDownSession();
         return ResponseEntity.ok().build();
     }
 }
