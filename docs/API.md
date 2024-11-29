@@ -34,11 +34,14 @@
 
 **HTTP method**
 
-`GET`
+`POST`
 
-~~**request**~~
-
-수동 String 생성. SetCredential호출
+**request**
+```json
+{
+    "credential": ""
+}
+```
 
 **response**
 
@@ -56,7 +59,7 @@
 
 **HTTP method**
 
-`GET`
+`POST`
 
 **request**
 
