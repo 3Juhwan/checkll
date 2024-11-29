@@ -34,16 +34,11 @@
 
 **HTTP method**
 
-`POST`
+`GET`
 
-**request**
-```json
-{
-    "boye" : "",
-    "sumin" : "",
-    "juhwan" : ""
-}
-```
+~~**request**~~
+
+수동 String 생성. SetCredential호출
 
 **response**
 
@@ -61,26 +56,11 @@
 
 **HTTP method**
 
-`POST`
+`GET`
 
 **request**
-```json
-{
-    "boye" : "",
-    "sumin" : "",
-    "juhwan" : ""
-}
-```
 
 **response**
-```json
-{
-    "majorAvg": "3.88",
-    "totalAvg": "3.96",
-    "cultureAvg": "4.06",
-    "accessAt": "HHMMSS"
-}
-```
 
 **status code**
 
