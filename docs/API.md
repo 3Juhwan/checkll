@@ -30,7 +30,7 @@
 
 **path**
 
-`/api/setinfo`
+`/api/set-credential`
 
 **HTTP method**
 
@@ -39,9 +39,7 @@
 **request**
 ```json
 {
-    "boye" : "",
-    "sumin" : "",
-    "juhwan" : ""
+    "credential": ""
 }
 ```
 
@@ -64,23 +62,8 @@
 `POST`
 
 **request**
-```json
-{
-    "boye" : "",
-    "sumin" : "",
-    "juhwan" : ""
-}
-```
 
 **response**
-```json
-{
-    "majorAvg": "3.88",
-    "totalAvg": "3.96",
-    "cultureAvg": "4.06",
-    "accessAt": "HHMMSS"
-}
-```
 
 **status code**
 
