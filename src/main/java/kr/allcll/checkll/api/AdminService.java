@@ -12,7 +12,7 @@ public class AdminService {
         this.pastGradeDataSource = pastGradeDataSource;
     }
 
-    public void setUpInfo(String credential) {
+    public void setUpCredential(String credential) {
         pastGradeDataSource.setCredential(credential);
     }
 

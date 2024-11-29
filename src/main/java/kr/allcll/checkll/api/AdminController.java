@@ -17,7 +17,7 @@ public class AdminController {
 
     @PostMapping("/api/set-credential")
     public ResponseEntity<Void> setCredential(@RequestBody SetCredentialRequest request) {
-        adminService.setUpInfo(request.credential());
+        adminService.setUpCredential(request.credential());
         return ResponseEntity.ok().build();
     }
 
