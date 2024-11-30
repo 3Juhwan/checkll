@@ -27,7 +27,7 @@ public class AdminController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("api/end-session")
+    @GetMapping("/api/end-session")
     public ResponseEntity<Void> endSession() {
         adminService.shutDownSession();
         return ResponseEntity.ok().build();
