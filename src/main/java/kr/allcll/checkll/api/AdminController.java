@@ -1,5 +1,6 @@
 package kr.allcll.checkll.api;
 
+import kr.allcll.checkll.client.Credential;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class AdminController {
 
     @PostMapping("/api/set-credential")
     public ResponseEntity<Void> setCredential(@RequestBody SetCredentialRequest request) {
-        adminService.setUpCredential(request.credential());
+        adminService.setUpCredential(Credential.getCredential(request));
         return ResponseEntity.ok().build();
     }
 

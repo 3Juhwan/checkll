@@ -1,7 +1,10 @@
 package kr.allcll.checkll.api;
 
 public record SetCredentialRequest(
-    String credential
+    String b,
+    String o,
+    String y,
+    String e
 ) {
 
 }
