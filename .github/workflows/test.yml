@@ -1,0 +1,56 @@
+name: Deploy to Test Server
+
+on:
+  push:
+    branches: [ "main", "chore-test-server-cd" ]
+
+jobs:
+  deploy:
+    runs-on: [ self-hosted, test-server ]
+
+    env:
+      APP_PATH: "/home/ubuntu/app"
+      JAR_NAME: "ckeckll-0.0.1-SNAPSHOT.jar"
+      LOG_FILE: "app.log"
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build Project
+        run: ./gradlew clean build -x test
+
+      - name: Stop and Remove Existing Application
+        run: |
+          echo "Stopping existing application..."
+          sudo pkill -f "${{ env.JAR_NAME }}" || echo "No application running."
+          echo "Removing old JAR file..."
+          sudo rm -f ${{ env.APP_PATH }}/${{ env.JAR_NAME }} || echo "No old JAR file found."
+
+      - name: Copy New JAR
+        run: |
+          echo "Copying new JAR file to target directory..."
+          sudo cp build/libs/${{ env.JAR_NAME }} ${{ env.APP_PATH }}/
+
+      - name: Start New Application
+        run: |
+          echo "Starting new application..."
+          nohup java -jar ${{ env.APP_PATH }}/${{ env.JAR_NAME }} > ${{ env.APP_PATH }}/${{ env.LOG_FILE }} 2>&1 &
+          echo "Application started with PID: $!"
+
+      - name: Verify Application Status
+        run: |
+          echo "Verifying application status..."
+          sleep 5
+          if pgrep -f "${{ env.JAR_NAME }}"; then
+            echo "Application is running."
+          else
+            echo "Failed to start application."
+            exit 1
+          fi
