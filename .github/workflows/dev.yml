@@ -2,7 +2,7 @@ name: Deploy to Dev Server
 
 on:
   push:
-    branches: [ "main", "chore-deploy-to-dev" ]
+    branches: [ "main" ]
 
 jobs:
   build:
