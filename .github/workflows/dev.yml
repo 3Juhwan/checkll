@@ -37,11 +37,11 @@ jobs:
       - name: Build Docker Image
         run: |
           echo "Building Docker image locally..."
-          sudo docker build -t ckeckll:latest .
+          sudo docker build -t checkll:latest .
 
       - name: Remove existing container
         run: |
-          CONTAINER_IDS=$(sudo docker ps -qa --filter "name=ckeckll")
+          CONTAINER_IDS=$(sudo docker ps -qa --filter "name=checkll")
           if [ -n "$CONTAINER_IDS" ]; then
             echo "Stopping and removing existing container..."
             sudo docker rm -f $CONTAINER_IDS
@@ -55,6 +55,6 @@ jobs:
           sudo docker run -d \
             -p 8080:8080 \
             -e SPRING_PROFILES_ACTIVE=dev \
-            -v /var/log/ckeckll:/app/logs \
-            --name ckeckll \
-            ckeckll:latest
+            -v /var/log/checkll:/app/logs \
+            --name checkll \
+            checkll:latest
