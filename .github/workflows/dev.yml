@@ -1,0 +1,60 @@
+name: Deploy to Dev Server
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: [ self-hosted ]
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: CheckOut
+        uses: actions/checkout@v4
+        with:
+          token: ${{secrets.CONFIG_SUBMODULE_TOKEN}}
+          submodules: true
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Test with Gradle Wrapper
+        run: ./gradlew clean build
+
+      - name: Build Docker Image
+        run: |
+          echo "Building Docker image locally..."
+          sudo docker build -t checkll:latest .
+
+      - name: Remove existing container
+        run: |
+          CONTAINER_IDS=$(sudo docker ps -qa --filter "name=checkll")
+          if [ -n "$CONTAINER_IDS" ]; then
+            echo "Stopping and removing existing container..."
+            sudo docker rm -f $CONTAINER_IDS
+          else
+            echo "No existing container found."
+          fi
+
+      - name: Run Docker Container
+        run: |
+          echo "Starting Docker container locally..."
+          sudo docker run -d \
+            -p 8080:8080 \
+            -e SPRING_PROFILES_ACTIVE=dev \
+            -v log-volume:/app/logs \
+            --name checkll \
+            checkll:latest
