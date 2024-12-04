@@ -33,4 +33,16 @@ public class AdminController {
         adminService.shutDownSession();
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/api/lensdepth")
+    public ResponseEntity<Void> lensDepth() {
+        adminService.doLensDepth();
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/api/get-subjects")
+    public ResponseEntity<Void> getSubjects() {
+        adminService.getDepartmentSubjects();
+        return ResponseEntity.ok().build();
+    }
 }
