@@ -41,21 +41,3 @@ tasks.named('build') {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-tasks.register('validateLombokUsage') {
-    doLast {
-        def allowedPackage = 'kr/allcll/checkll/datasource'
-        def lombokAnnotations = ['@Getter', '@Setter', '@ToString', '@AllArgsConstructor', '@NoArgsConstructor']
-
-        fileTree('src/main/java').each { file ->
-            if (file.name.endsWith('.java')) {
-                file.eachLine { line, lineNumber ->
-                    if (lombokAnnotations.any { line.contains(it) } &&
-                            !file.path.contains(allowedPackage)) {
-                        throw new GradleException("Lombok annotation found in disallowed package: ${file.path} at line ${lineNumber}")
-                    }
-                }
-            }
-        }
-    }
-}
