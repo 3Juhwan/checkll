@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -11,6 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class PopUp {
 
     @JsonProperty("dl_main")
@@ -20,84 +22,85 @@ public class PopUp {
     @Setter
     @ToString
     @AllArgsConstructor
+    @NoArgsConstructor
     public static final class DlMain {
 
         @JsonProperty("SMT_CD")
-        private final String smtCd;
+        private String smtCd;
 
         @JsonProperty("REMAIN_TOT_RCNT")
-        private final Integer remainTotRcnt;
+        private Integer remainTotRcnt;
 
         @JsonProperty("TOT_LIMIT_RCNT_1")
-        private final Integer totLimitRcnt1;
+        private Integer totLimitRcnt1;
 
         @JsonProperty("OUT_LIMIT_RCNT")
-        private final Integer outLimitRcnt;
+        private Integer outLimitRcnt;
 
         @JsonProperty("CLASS")
-        private final String classCode;
+        private String classCode;
 
         @JsonProperty("TOT_LIMIT_RCNT_4")
-        private final Integer totLimitRcnt4;
+        private Integer totLimitRcnt4;
 
         @JsonProperty("TOT_LIMIT_RCNT_3")
-        private final Integer totLimitRcnt3;
+        private Integer totLimitRcnt3;
 
         @JsonProperty("TOT_LIMIT_RCNT_2")
-        private final Integer totLimitRcnt2;
+        private Integer totLimitRcnt2;
 
         @JsonProperty("RCNT")
-        private final Integer rcnt;
+        private Integer rcnt;
 
         @JsonProperty("YEAR")
-        private final String year;
+        private String year;
 
         @JsonProperty("OUT_LIMIT_RCNT_2")
-        private final Integer outLimitRcnt2;
+        private Integer outLimitRcnt2;
 
         @JsonProperty("OUT_LIMIT_RCNT_1")
-        private final Integer outLimitRcnt1;
+        private Integer outLimitRcnt1;
 
         @JsonProperty("TOT_RCNT")
-        private final Integer totRcnt;
+        private Integer totRcnt;
 
         @JsonProperty("STUDENT_DIV_NM")
-        private final String studentDivNm;
+        private String studentDivNm;
 
         @JsonProperty("STUDENT_DEPT_CD_NM")
-        private final String studentDeptCdNm;
+        private String studentDeptCdNm;
 
         @JsonProperty("CURI_NO")
-        private final String curiNo;
+        private String curiNo;
 
         @JsonProperty("OUT_LIMIT_RCNT_4")
-        private final Integer outLimitRcnt4;
+        private Integer outLimitRcnt4;
 
         @JsonProperty("OUT_LIMIT_RCNT_3")
-        private final Integer outLimitRcnt3;
+        private Integer outLimitRcnt3;
 
         @JsonProperty("TOT_LIMIT_RCNT")
-        private final Integer totLimitRcnt;
+        private Integer totLimitRcnt;
 
         @JsonProperty("REMAIN_OTHER_RCNT")
-        private final Integer remainOtherRcnt;
+        private Integer remainOtherRcnt;
 
         @JsonProperty("TOT_OUT_RCNT")
-        private final Integer totOutRcnt;
+        private Integer totOutRcnt;
 
         @JsonProperty("REMAIN_OUT_RCNT")
-        private final Integer remainOutRcnt;
+        private Integer remainOutRcnt;
 
         @JsonProperty("DEPT_CD")
-        private final String deptCd;
+        private String deptCd;
 
         @JsonProperty("STUDENT_DEPT_CD")
-        private final String studentDeptCd;
+        private String studentDeptCd;
 
         @JsonProperty("ORGN_CLSF_CD")
-        private final String orgnClsfCd;
+        private String orgnClsfCd;
 
         @JsonProperty("STUDENT_DIV")
-        private final String studentDiv;
+        private String studentDiv;
     }
 }
