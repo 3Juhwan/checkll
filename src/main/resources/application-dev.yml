@@ -5,10 +5,10 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 10s
   datasource:
-    url: jdbc:mysql://${db.endpoint}/${db.dbname}?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://${db_endpoint}/${db_dbname}?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: ${db.username}
-    password: ${db.password}
+    username: ${db_username}
+    password: ${db_password}
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
