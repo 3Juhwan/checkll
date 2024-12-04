@@ -69,7 +69,7 @@
     </rollingPolicy>
   </appender>
 
-  <springProfile name="default">
+  <springProfile name="local">
     <root level="INFO">
       <appender-ref ref="CONSOLE"/>
     </root>
